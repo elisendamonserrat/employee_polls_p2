@@ -1,4 +1,4 @@
-import { _getUsers } from "../utils";
+import { _getUsers } from "../utils/_DATA";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 

@@ -5,8 +5,16 @@ import HomePage from "../pages/HomePage";
 import QuestionPage from "../pages/QuestionPage";
 import NewPollPage from "../pages/NewPollPage";
 import LeaderBoardPage from "../pages/LeaderBoardPage";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { handleInitialData } from "../actions/shared";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(handleInitialData());
+  }, []);
+
   return (
     <>
       <div className="container">

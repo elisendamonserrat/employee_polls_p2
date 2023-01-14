@@ -6,8 +6,9 @@ import QuestionPage from "../pages/QuestionPage";
 import NewPollPage from "../pages/NewPollPage";
 import LeaderBoardPage from "../pages/LeaderBoardPage";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleInitialData } from "../actions/shared";
+import LoadingBar from "react-redux-loading-bar";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,9 +16,13 @@ function App() {
     dispatch(handleInitialData());
   }, []);
 
+  const loading = useSelector((state) => state.loadingBar);
+  console.log("laoding", loading?.default);
+
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <LoadingBar style={{ backgroundColor: "lightblue", height: "10px" }} />
+      {loading?.default === 1 ? null : (
         <Routes>
           <Route path="/" exact element={<HomePage />} />
           <Route path="/login" exact element={<Login />} />
@@ -25,8 +30,8 @@ function App() {
           <Route path="/add" exact element={<NewPollPage />} />
           <Route path="/leaderboard" exact element={<LeaderBoardPage />} />
         </Routes>
-      </div>
-    </>
+      )}
+    </div>
   );
 }
 

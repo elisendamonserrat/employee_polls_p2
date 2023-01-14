@@ -21,7 +21,7 @@ function App() {
   console.log("laoding", loading?.default);
 
   return (
-    <div className="container">
+    <div className="">
       <LoadingBar style={{ backgroundColor: "lightblue", height: "10px" }} />
       <Navbar />
       {loading?.default === 1 ? null : (

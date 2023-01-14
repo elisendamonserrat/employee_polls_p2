@@ -21,7 +21,7 @@ let users = {
       "https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png",
     answers: {
       "vthrdm985a262al8qx3do": "optionOne",
-     " xj352vofupe1dqz9emx13r": "optionTwo",
+     "xj352vofupe1dqz9emx13r": "optionTwo",
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },

@@ -20,7 +20,7 @@ const Login = () => {
     dispatch(setAuthedUser(userID));
     navigate("/");
   };
-
+  
   return (
     <div className="login-container">
       <p>Welcome to</p>

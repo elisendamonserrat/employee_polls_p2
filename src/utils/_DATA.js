@@ -1,51 +1,54 @@
 let users = {
   sarahedo: {
-    id: 'sarahedo',
-    password:'password123',
-    name: 'Sarah Edo',
-    avatarURL: null,
+    id: "sarahedo",
+    password: "password123",
+    name: "Sarah Edo",
+    avatarURL:
+      "https://www.shareicon.net/data/128x128/2016/09/15/829446_user_512x512.png",
     answers: {
-      "8xf0y6ziyjabvozdd253nd": 'optionOne',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne',
-      "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "8xf0y6ziyjabvozdd253nd": "optionOne",
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
+      am8ehyc8byjqgar0jgpub9: "optionTwo",
+      loxhs1bqm25b708cmbf3g: "optionTwo",
     },
-    questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+    questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
   tylermcginnis: {
-    id: 'tylermcginnis',
-    password:'abc321',
-    name: 'Tyler McGinnis',
-    avatarURL: null,
+    id: "tylermcginnis",
+    password: "abc321",
+    name: "Tyler McGinnis",
+    avatarURL:
+      "https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png",
     answers: {
-      "vthrdm985a262al8qx3do": 'optionOne',
-      "xj352vofupe1dqz9emx13r": 'optionTwo',
+      vthrdm985a262al8qx3do: "optionOne",
+      xj352vofupe1dqz9emx13r: "optionTwo",
     },
-    questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
+    questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
   mtsamis: {
-    id: 'mtsamis',
-    password:'xyz123',
-    name: 'Mike Tsamis',
-    avatarURL: null,
+    id: "mtsamis",
+    password: "xyz123",
+    name: "Mike Tsamis",
+    avatarURL:
+      "https://www.shareicon.net/data/128x128/2016/09/15/829442_man_512x512.png",
     answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOne',
-      "vthrdm985a262al8qx3do": 'optionTwo',
-      "6ni6ok3ym7mf1p33lnez": 'optionOne'
+      xj352vofupe1dqz9emx13r: "optionOne",
+      vthrdm985a262al8qx3do: "optionTwo",
+      "6ni6ok3ym7mf1p33lnez": "optionOne",
     },
-    questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+    questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
   },
   zoshikanlu: {
-    id: 'zoshikanlu',
-    password:'pass246',
-    name: 'Zenobia Oshikanlu',
+    id: "zoshikanlu",
+    password: "pass246",
+    name: "Zenobia Oshikanlu",
     avatarURL: null,
     answers: {
-      "xj352vofupe1dqz9emx13r": 'optionOne',
+      xj352vofupe1dqz9emx13r: "optionOne",
     },
     questions: [],
-  }
-}
+  },
+};
 
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {

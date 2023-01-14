@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
+import Navbar from "./Navbar";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="container">
       <LoadingBar style={{ backgroundColor: "lightblue", height: "10px" }} />
+      <Navbar />
       {loading?.default === 1 ? null : (
         <Routes>
           <Route path="/" exact element={<HomePage />} />

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logoutAuthedUser } from "../actions/authedUser";
 
 const Navbar = () => {
@@ -14,13 +14,35 @@ const Navbar = () => {
 
     dispatch(logoutAuthedUser());
   };
+  let activeStyle = {
+    textDecoration: "underline",
+  };
+  let notActiveStyle = {
+    opacity: 0.6,
+  }
+
   return (
-    <nav className="p-3 border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700 px-8 mb-4">
+    <nav className="p-3 border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700 px-8 mb-8">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-          <Link to="/">Home</Link>
-          <Link to="/leaderboard">Leaderboard</Link>
-          <Link to="/add">New</Link>
+          <NavLink
+            to="/"
+            style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="leaderboard"
+            style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
+          >
+            Leaderboard
+          </NavLink>
+          <NavLink
+            to="add"
+            style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
+          >
+            New
+          </NavLink>
         </div>
         {authedUser && (
           <div className="flex items-center space-x-4">
@@ -31,7 +53,7 @@ const Navbar = () => {
                   : authedUserInfo.avatarURL
               }
               alt={authedUserInfo.name}
-              width="40px"
+              width="30px"
             />
             <span>{authedUserInfo.id}</span>
             <button

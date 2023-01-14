@@ -18,14 +18,19 @@ code {
 
 @layer base {
   h1 {
-    @apply text-2xl text-blue-600 font-semibold;
+    @apply text-2xl text-blue-600 font-semibold text-center;
   }
   h2 {
     @apply text-xl text-blue-600 font-semibold;
   }
 
   p,
-  a {
+  a,
+  label,
+  span,
+  td,
+  tr,
+  th {
     @apply text-base text-blue-900;
   }
 
@@ -40,7 +45,7 @@ code {
 
 @layer components {
   .content-container {
-    @apply container mx-auto w-6/12;
+    @apply w-11/12 max-w-screen-md mx-auto;
   }
 }
 

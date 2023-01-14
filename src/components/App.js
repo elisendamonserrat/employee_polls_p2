@@ -18,7 +18,6 @@ function App() {
   }, []);
 
   const loading = useSelector((state) => state.loadingBar);
-  console.log("laoding", loading?.default);
 
   return (
     <div className="">

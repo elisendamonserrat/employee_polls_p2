@@ -16,21 +16,20 @@ const HomePage = () => {
   const newQuestions = Object.values(questions).filter(
     (question) => !answeredQuestions.includes(question?.id)
   );
-  console.log("newQuestions", newQuestions);
-  console.log("answeredQuestions", answeredQuestions);
-
-  const handleSwicth = () => {};
 
   return (
-    <div className="content-container relative">
-      <button
-        className="p-1.5 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:border-blue-500 absolute switch-btn"
-        onClick={() =>
-          setSwicthPolls((switchPolls) => (switchPolls = !switchPolls))
-        }
-      >
-        <HiOutlineSwitchVertical className="h-6 w-6 text-blue-500" />
-      </button>
+    <div className="content-container">
+      <div className="flex items-center justify-end">
+        <p className="text-sm mr-2 opacity-70">Swicth Questions</p>
+        <button
+          className="p-1.5 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:border-blue-500 switch-btn"
+          onClick={() =>
+            setSwicthPolls((switchPolls) => (switchPolls = !switchPolls))
+          }
+        >
+          <HiOutlineSwitchVertical className="h-4 w-4 text-blue-500" />
+        </button>
+      </div>
       <div
         className={` flex flex-col ${switchPolls ? "flex-col-reverse" : ""}`}
       >

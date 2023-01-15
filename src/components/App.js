@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
 import Navbar from "./Navbar";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,11 +26,42 @@ function App() {
       <Navbar />
       {loading?.default === 1 ? null : (
         <Routes>
-          <Route path="/" exact element={<HomePage />} />
+          <Route
+            path="/"
+            exact
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/login" exact element={<Login />} />
-          <Route path="/questions/:question_id" element={<QuestionPage />} />
-          <Route path="/add" exact element={<NewPollPage />} />
-          <Route path="/leaderboard" exact element={<LeaderBoardPage />} />
+          <Route
+            path="/questions/:question_id"
+            element={
+              <PrivateRoute>
+                <QuestionPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/add"
+            exact
+            element={
+              <PrivateRoute>
+                <NewPollPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/leaderboard"
+            exact
+            element={
+              <PrivateRoute>
+                <LeaderBoardPage />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       )}
     </div>

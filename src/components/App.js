@@ -62,6 +62,7 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="*" exact element={<Login />} />
         </Routes>
       )}
     </div>

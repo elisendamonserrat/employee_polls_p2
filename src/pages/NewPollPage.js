@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { handleAddQuestion } from "../actions/questions";
+import { useNavigate } from "react-router-dom";
+import { handleAddQuestion } from "../actions/shared";
 
 const defaultPollState = {
   optionOne: "",
@@ -14,6 +15,7 @@ const NewPollPage = () => {
     optionTwo: "",
   });
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -30,6 +32,7 @@ const NewPollPage = () => {
 
     dispatch(handleAddQuestion(newPoll));
     setNewPoll(defaultPollState);
+    navigate("/");
   };
 
   return (

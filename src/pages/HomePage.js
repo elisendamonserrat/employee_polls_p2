@@ -48,7 +48,6 @@ const HomePage = () => {
                 <QuestionCard
                   question={question}
                   key={question.id}
-                  isQuestionAnswered={false}
                 />
               );
             })}
@@ -60,7 +59,6 @@ const HomePage = () => {
                 <QuestionCard
                   question={question}
                   key={question.id}
-                  isQuestionAnswered={true}
                 />
               );
             })}

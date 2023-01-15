@@ -11,7 +11,7 @@ const QuestionCard = ({ question }) => {
       <p className="bold">{author}</p>
       <span className="opacity-60 mb-4 block text-sm">{dateFormated}</span>
       <Link to={`/questions/${id}`}>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2.5 px-4 border my-2 border-blue-700 rounded disabled:opacity-50 w-full">
+        <button className="btn-accent">
           Show
         </button>
       </Link>

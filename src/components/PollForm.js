@@ -25,14 +25,14 @@ const PollForm = ({ question }) => {
     "bg-blue-500 text-white border-b-4 border-blue-500 flex items-center justify-between";
 
   return (
-    <div className="flex flex-col w-11/12">
+    <div className="flex flex-col w-full md:w-11/12">
       <div className="mb-6">
         <div className="mt-2 flex flex-col items-center space-y-4">
-          <p className="text-sm w-7/12 self-center ">
+          <p className="text-sm w-full md:w-7/12 self-center ">
             Select one of the options below:
           </p>
           <div
-            className={`bg-blue-50 py-4 px-2 w-7/12 rounded hover:cursor-pointer border-b-4  ${
+            className={`bg-blue-50 py-4 px-2 w-full md:w-7/12 rounded hover:cursor-pointer border-b-4  ${
               answer === "optionOne" && selectedOptionsStyles
             }`}
             onClick={(e) => handleChange(e, "optionOne")}
@@ -43,7 +43,7 @@ const PollForm = ({ question }) => {
             )}
           </div>
           <div
-            className={`bg-blue-50 py-4 px-2 w-7/12 rounded hover:cursor-pointer border-b-4  ${
+            className={`bg-blue-50 py-4 px-2 w-full md:w-7/12 rounded hover:cursor-pointer border-b-4  ${
               answer === "optionTwo" && selectedOptionsStyles
             }`}
             onClick={(e) => handleChange(e, "optionTwo")}
@@ -55,12 +55,8 @@ const PollForm = ({ question }) => {
           </div>
         </div>
       </div>
-      <div className="mb-6 w-7/12 self-center">
-        <button
-          type="submit"
-          className="w-full py-3 px-5 text-white font-semibold bg-blue-700 rounded focus:shadow-outline hover:bg-blue-800"
-          onClick={handleSubmit}
-        >
+      <div className="mb-6 w-full md:w-7/12 self-center">
+        <button type="submit" className="btn-accent" onClick={handleSubmit}>
           SUBMIT ANSWER
         </button>
       </div>

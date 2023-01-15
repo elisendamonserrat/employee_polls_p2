@@ -34,7 +34,7 @@ const QuestionPage = () => {
   return (
     <div className="content-container flex flex-col items-center space-y-4">
       <h1>Poll by {questionAuthor.name}</h1>
-      <img src={questionAuthor.avatarURL} alt={questionAuthor.name} />
+      <img src={questionAuthor.avatarURL} alt={questionAuthor.name} width="80"/>
       <p className="subtitle font-semibold">Would You Rather...?</p>
       {isQuestionAnswered ? (
         <PollResults

@@ -55,7 +55,6 @@ export function handleAnswerQuestion(answer, qid) {
       authedUser,
     })
       .then((question) => {
-        console.log("question BE", question);
         dispatch(answerQuestion(answer, qid, authedUser));
       })
       .then(() => dispatch(hideLoading()))

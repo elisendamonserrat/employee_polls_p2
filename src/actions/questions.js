@@ -18,7 +18,6 @@ export function addQuestion(question) {
 }
 
 export function answerQuestion(answer, qid, authedUser) {
-  console.log("answer, qid, authedUser", answer, qid, authedUser);
   return {
     type: ANSWER_QUESTION,
     answer,

@@ -30,7 +30,7 @@ const HomePage = () => {
       <div className="flex items-center justify-end">
         <p className="text-sm mr-2 opacity-70">Swicth Questions</p>
         <button
-          className="p-1.5 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:border-blue-500 switch-btn"
+          className="btn-rounded-icon switch-btn"
           onClick={() =>
             setSwicthPolls((switchPolls) => (switchPolls = !switchPolls))
           }
@@ -44,23 +44,13 @@ const HomePage = () => {
         <QuestionsContainer headline={"New Questions"}>
           {newQuestionsArr &&
             newQuestionsArr.map((question) => {
-              return (
-                <QuestionCard
-                  question={question}
-                  key={question.id}
-                />
-              );
+              return <QuestionCard question={question} key={question.id} />;
             })}
         </QuestionsContainer>
         <QuestionsContainer headline={"Done"}>
           {answeredQuestionsArr &&
             answeredQuestionsArr.map((question) => {
-              return (
-                <QuestionCard
-                  question={question}
-                  key={question.id}
-                />
-              );
+              return <QuestionCard question={question} key={question.id} />;
             })}
         </QuestionsContainer>
       </div>

@@ -23,17 +23,17 @@ const Login = () => {
   };
 
   return (
-    <div className="content-container bg-white rounded-lg p-6 bg-slate-50 text-center space-y-2 flex flex-col items-center justify-center">
-      <p className="subtitle">Welcome to</p>
-      <h1 className="">Employee Poll App</h1>
+    <div className="content-container rounded-lg px-6 py-10 bg-slate-50 text-center flex flex-col items-center justify-center">
+      <p className="text-blue-900 font-bold text-2xl">Welcome back to</p>
+      <h1 className="my-4 -mt-1">Employee Poll App</h1>
       <img
-        src="https://www.shareicon.net/data/128x128/2016/02/02/274143_blue_256x256.png"
+        src="https://pollsplatform.com/wp-content/uploads/2022/03/Group-19-2x.png"
         alt="poll"
         className="center"
+        width="60%"
       />
-
-      <div className=" mt-2">
-        <p className="mb-2 subtitle">Select a user to login</p>
+      <div className="mt-6 w-11/12 md:w-9/12 text-left space-y-2">
+        <p className="mb-2 subtitle font-medium">Select a user to login</p>
         <select
           className="p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600 w-full"
           value={selectedUser}
@@ -47,7 +47,7 @@ const Login = () => {
           ))}
         </select>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2.5 px-4 border my-2 border-blue-700 rounded disabled:opacity-50 w-full"
+          className="btn-accent"
           type="submit"
           disabled={selectedUser === "Users"}
           onClick={handleSubmit}

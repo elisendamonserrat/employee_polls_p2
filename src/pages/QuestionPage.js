@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useLocation } from "react-router-dom";
+import PollForm from "../components/PollForm";
+import PollResults from "../components/PollResults";
 
 const QuestionPage = () => {
-  return (
-    <div>QuestionPage</div>
-  )
-}
+  const location = useLocation();
 
-export default QuestionPage
+  const isQuestionAnswered = location.state?.isQuestionAnswered;
+
+  return isQuestionAnswered ? <PollResults /> : <PollForm />;
+};
+
+export default QuestionPage;

@@ -44,13 +44,25 @@ const HomePage = () => {
         <QuestionsContainer headline={"New Questions"}>
           {newQuestionsArr &&
             newQuestionsArr.map((question) => {
-              return <QuestionCard question={question} key={question.id} />;
+              return (
+                <QuestionCard
+                  question={question}
+                  key={question.id}
+                  isQuestionAnswered={false}
+                />
+              );
             })}
         </QuestionsContainer>
         <QuestionsContainer headline={"Done"}>
           {answeredQuestionsArr &&
             answeredQuestionsArr.map((question) => {
-              return <QuestionCard question={question} key={question.id} />;
+              return (
+                <QuestionCard
+                  question={question}
+                  key={question.id}
+                  isQuestionAnswered={true}
+                />
+              );
             })}
         </QuestionsContainer>
       </div>

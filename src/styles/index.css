@@ -49,6 +49,10 @@ code {
   }
 }
 
+.w-48 {
+  width: 48%;
+}
+
 .switch-btn {
   right: -60px;
   top: 14px;

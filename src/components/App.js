@@ -11,6 +11,7 @@ import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
 import Navbar from "./Navbar";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/ErrorPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,7 +63,8 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="*" exact element={<Login />} />
+          <Route path="*" exact element={<Error />} />
+          <Route component={<Error />} />
         </Routes>
       )}
     </div>

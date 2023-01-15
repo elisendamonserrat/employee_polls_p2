@@ -8,13 +8,21 @@ const HomePage = () => {
   const [switchPolls, setSwicthPolls] = useState(false);
   const users = useSelector((state) => state.users);
   const authedUser = useSelector((state) => state.authedUser);
-  const questions = useSelector((state) => state.questions);
+  const questionsObj = useSelector((state) => state.questions);
+
   const authedUserInfo = users[authedUser];
 
-  const answeredQuestions = Object.keys(authedUserInfo.answers);
+  const sortedQuestionsArr = Object.values(questionsObj).sort(function (x, y) {
+    return y.timestamp - x.timestamp;
+  });
 
-  const newQuestions = Object.values(questions).filter(
-    (question) => !answeredQuestions.includes(question?.id)
+  const answeredQuestionsIDs = Object.keys(authedUserInfo.answers);
+  const answeredQuestionsArr = sortedQuestionsArr.filter((question) =>
+    answeredQuestionsIDs.includes(question?.id)
+  );
+
+  const newQuestionsArr = sortedQuestionsArr.filter(
+    (question) => !answeredQuestionsIDs.includes(question?.id)
   );
 
   return (
@@ -34,15 +42,14 @@ const HomePage = () => {
         className={` flex flex-col ${switchPolls ? "flex-col-reverse" : ""}`}
       >
         <QuestionsContainer headline={"New Questions"}>
-          {newQuestions &&
-            newQuestions.map((question) => {
+          {newQuestionsArr &&
+            newQuestionsArr.map((question) => {
               return <QuestionCard question={question} key={question.id} />;
             })}
         </QuestionsContainer>
         <QuestionsContainer headline={"Done"}>
-          {answeredQuestions &&
-            answeredQuestions.map((id) => {
-              let question = questions[id];
+          {answeredQuestionsArr &&
+            answeredQuestionsArr.map((question) => {
               return <QuestionCard question={question} key={question.id} />;
             })}
         </QuestionsContainer>

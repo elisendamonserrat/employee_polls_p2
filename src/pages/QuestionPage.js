@@ -11,9 +11,9 @@ const QuestionPage = () => {
   const authedUser = useSelector((state) => state.authedUser);
   const questionsObj = useSelector((state) => state.questions);
 
-  const selectedQuestion = questionsObj[question_id];
+  const question = questionsObj[question_id];
 
-  if (!selectedQuestion) {
+  if (!question) {
     return <ErrorPage message={"This question doesn't exist."} />;
   }
 
@@ -26,13 +26,23 @@ const QuestionPage = () => {
     : false;
 
   const questionAuthor = Object.values(users).filter(
-    (user) => user.id === selectedQuestion.author
+    (user) => user.id === question.author
   )[0];
 
-  return isQuestionAnswered ? (
-    <PollResults question={selectedQuestion} selectedOption={selectedOption} author={questionAuthor} />
-  ) : (
-      <PollForm question={selectedQuestion} author={questionAuthor} />
+  return (
+    <div className="content-container flex flex-col items-center space-y-4">
+      <h1>Poll by {questionAuthor.name}</h1>
+      <img src={questionAuthor.avatarURL} alt={questionAuthor.name} />
+      <p className="subtitle font-semibold">Would You Rather...?</p>
+      {isQuestionAnswered ? (
+        <PollResults
+          question={question}
+          selectedOption={selectedOption}
+        />
+      ) : (
+        <PollForm question={question} />
+      )}
+    </div>
   );
 };
 

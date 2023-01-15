@@ -1,4 +1,6 @@
 import React from "react";
+import { HiCheck } from "react-icons/hi";
+
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage";

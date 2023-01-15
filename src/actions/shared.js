@@ -1,5 +1,10 @@
-import { _getQuestions, _getUsers, _saveQuestion } from "../utils/_DATA";
-import { receiveQuestions, addQuestion } from "./questions";
+import {
+  _getQuestions,
+  _getUsers,
+  _saveQuestion,
+  _saveQuestionAnswer,
+} from "../utils/_DATA";
+import { receiveQuestions, addQuestion, answerQuestion } from "./questions";
 import { receiveUsers } from "./users";
 import { setAuthedUser } from "./authedUser";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
@@ -21,7 +26,8 @@ export function handleInitialData() {
   };
 }
 
-// ASYNC ACTION THAT WILL UPDATE THE QUESTIONS AND USERS STATE
+// ASYNC ACTION THAT WILL ADD A NEW QUESION AND
+// UPDATE THE QUESTIONS AND USERS STATE
 export function handleAddQuestion(question) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
@@ -33,6 +39,24 @@ export function handleAddQuestion(question) {
     })
       .then((question) => {
         dispatch(addQuestion(question));
+      })
+      .then(() => dispatch(hideLoading()))
+      .catch((error) => console.log("Error: ", error));
+  };
+}
+
+export function handleAnswerQuestion(answer, qid) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    dispatch(showLoading());
+    return _saveQuestionAnswer({
+      answer,
+      qid,
+      authedUser,
+    })
+      .then((question) => {
+        console.log("question BE", question);
+        dispatch(answerQuestion(answer, qid, authedUser));
       })
       .then(() => dispatch(hideLoading()))
       .catch((error) => console.log("Error: ", error));

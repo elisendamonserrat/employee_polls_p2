@@ -29,6 +29,7 @@ describe("save new question", () => {
       text: "Option Two",
     };
     const savedQuestion = await _saveQuestion(questionA);
+
     expect(savedQuestion).toHaveProperty("id");
     expect(savedQuestion).toHaveProperty("optionOne");
     expect(savedQuestion.optionOne).toEqual(
@@ -42,7 +43,17 @@ describe("save new question", () => {
   });
 });
 
-describe("save question answers", () => {
+describe("_saveQuestionAnswer", () => {
+  it("will resolve to true when called with correct data", async () => {
+    const myAnswer = {
+      authedUser: "sarahedo",
+      qid: "vthrdm985a262al8qx3do",
+      answer: "optionOne",
+    };
+
+    await expect(_saveQuestionAnswer(myAnswer)).resolves.toBe(true);
+  });
+
   it("should throw an error if authedUser, qid and answer are not provided", async () => {
     const testAnswer = {
       authedUser: null,

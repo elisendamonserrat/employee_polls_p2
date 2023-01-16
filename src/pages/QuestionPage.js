@@ -1,9 +1,10 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PollForm from "../components/PollForm";
 import PollResults from "../components/PollResults";
+import ErrorMessage from "../components/ErrorMessage";
 
 const QuestionPage = () => {
   let { question_id } = useParams();
@@ -11,12 +12,10 @@ const QuestionPage = () => {
   const authedUser = useSelector((state) => state.authedUser);
   const questionsObj = useSelector((state) => state.questions);
 
-  const navigate = useNavigate()
-
   const question = questionsObj[question_id];
 
-  if (!question) {
-    navigate("/")
+  if (question === undefined) {
+    return <ErrorMessage />;
   }
 
   const authedUserInfo = users[authedUser];
@@ -28,24 +27,29 @@ const QuestionPage = () => {
     : false;
 
   const questionAuthor = Object.values(users).filter(
-    (user) => user.id === question.author
+    (user) => user.id === question?.author
   )[0];
 
   return (
-    <div className="content-container flex flex-col items-center space-y-4">
-      <h1>Poll by {questionAuthor.name}</h1>
-      <img
-        src={questionAuthor.avatarURL}
-        alt={questionAuthor.name}
-        width="80"
-      />
-      <p className="subtitle font-semibold">Would You Rather...?</p>
-      {isQuestionAnswered ? (
-        <PollResults question={question} selectedOption={selectedOption} />
-      ) : (
-        <PollForm question={question} />
+    <>
+      {question && (
+        <div className="content-container flex flex-col items-center space-y-4">
+          <h1>Poll by {questionAuthor.name}</h1>
+          <img
+            src={questionAuthor.avatarURL}
+            alt={questionAuthor.name}
+            width="80"
+          />
+          <p className="subtitle font-semibold">Would You Rather...?</p>
+
+          {isQuestionAnswered ? (
+            <PollResults question={question} selectedOption={selectedOption} />
+          ) : (
+            <PollForm question={question} />
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

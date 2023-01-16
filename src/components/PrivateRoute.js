@@ -1,15 +1,13 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-
 
 export default function PrivateRoute({ children }) {
   const authedUser = useSelector((state) => state.authedUser);
+  const location = useLocation();
 
-  if (!authedUser) {
-    // not logged in so redirect to login page with the return url
-    return <Navigate to="/login" />;
-  }
-
-  // authorized so return child components
-  return children;
+  return authedUser ? (
+    children
+  ) : (
+    <Navigate to="/login" replace state={{ from: location }} />
+  );
 }

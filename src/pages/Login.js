@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ state }) => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [selectedUser, setSelectedUser] = useState("Users");
 
   const dispatch = useDispatch();
@@ -19,11 +19,16 @@ const Login = () => {
     )[0].id;
 
     dispatch(setAuthedUser(userID));
-    navigate("/");
+
+    if (location.state?.from) {
+      navigate(location.state.from);
+    } else {
+      navigate("/");
+    }
   };
 
   return (
-    <div className="bg-gradient-to-b from-blue-100 content-container rounded-lg px-6 py-10 bg-teal-50 shadow-md border text-center flex flex-col items-center justify-center">
+    <div className="bg-gradient-to-b from-blue-50 content-container rounded-lg px-6 py-10 shadow-md  text-center flex flex-col items-center justify-center">
       <p className="text-blue-900 font-bold text-2xl mb-2">Welcome back to</p>
       <img
         src="https://pollsplatform.com/wp-content/uploads/2022/03/Group-19-2x.png"

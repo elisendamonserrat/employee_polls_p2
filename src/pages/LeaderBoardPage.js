@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const LeaderBoardPage = () => {
   const usersObj = useSelector((state) => state.users);
-
+  
   const sortedUsersArr = Object.values(usersObj).sort((a, b) => {
     const aNumQuestions = a.questions.length;
     const bNumQuestions = b.questions.length;
@@ -11,11 +11,10 @@ const LeaderBoardPage = () => {
     const aNumAnswers = Object.values(a.answers).length;
     const bNumAnswers = Object.values(b.answers).length;
 
-    if (aNumQuestions === bNumQuestions) {
-      return aNumAnswers < bNumAnswers ? 1 : -1;
-    } else {
-      return aNumQuestions < bNumQuestions ? 1 : -1;
-    }
+    const aSum = aNumQuestions + aNumAnswers;
+    const bSum = bNumQuestions + bNumAnswers;
+
+    return bSum - aSum;
   });
 
   return (

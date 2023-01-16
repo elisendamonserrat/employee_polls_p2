@@ -2,9 +2,9 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import PollForm from "../components/PollForm";
-import PollResults from "../components/PollResults";
-import ErrorMessage from "../components/ErrorMessage";
+import PollForm from "../components/PollForm/PollForm";
+import PollResults from "../components/PollResults/PollResults";
+import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 
 const QuestionPage = () => {
   let { question_id } = useParams();
@@ -36,7 +36,11 @@ const QuestionPage = () => {
         <div className="content-container flex flex-col items-center space-y-4">
           <h1>Poll by {questionAuthor.name}</h1>
           <img
-            src={questionAuthor.avatarURL}
+            src={
+              !questionAuthor.avatarURL
+                ? "https://www.shareicon.net/data/128x128/2015/10/03/650430_users_512x512.png"
+                : questionAuthor.avatarURL
+            }
             alt={questionAuthor.name}
             width="80"
           />

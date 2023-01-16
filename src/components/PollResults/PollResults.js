@@ -1,6 +1,10 @@
 import React from "react";
 import { HiCheck } from "react-icons/hi";
-import { calculatePercentage, capitalizeStr, sum } from "../utils/helpers/index";
+import {
+  calculatePercentage,
+  capitalizeStr,
+  sum,
+} from "../../utils/helpers/index";
 
 const PollResults = ({ question, selectedOption }) => {
   const { optionOne, optionTwo } = question;

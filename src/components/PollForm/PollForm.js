@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { HiCheck } from "react-icons/hi";
 import { useDispatch } from "react-redux";
-import { handleAnswerQuestion } from "../actions/shared";
-import { capitalizeStr } from "../utils/helpers/index";
+import { handleAnswerQuestion } from "../../actions/shared";
+import { capitalizeStr } from "../../utils/helpers/index";
 
 const PollForm = ({ question }) => {
   const dispatch = useDispatch();

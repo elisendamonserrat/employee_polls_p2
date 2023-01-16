@@ -9,9 +9,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import LoadingBar from "react-redux-loading-bar";
-import Navbar from "./Navbar";
-import PrivateRoute from "./PrivateRoute";
-import ErrorMessage from "./ErrorMessage";
+import Navbar from "./Navbar/Navbar";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
 
 function App() {
   const dispatch = useDispatch();

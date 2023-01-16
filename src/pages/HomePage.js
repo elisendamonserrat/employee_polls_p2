@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { HiOutlineSwitchVertical } from "react-icons/hi";
 import { useSelector } from "react-redux";
-import QuestionCard from "../components/QuestionCard";
-import QuestionsContainer from "../components/QuestionsContainer";
+import QuestionCard from "../components/QuestionCard/QuestionCard";
+import QuestionsContainer from "../components/QuestionCard/QuestionsContainer";
 
 const HomePage = () => {
   const [switchPolls, setSwicthPolls] = useState(false);

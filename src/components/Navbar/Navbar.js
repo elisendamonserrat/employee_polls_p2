@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logoutAuthedUser } from "../actions/authedUser";
+import { logoutAuthedUser } from "../../actions/authedUser";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Navbar = () => {
   };
   let notActiveStyle = {
     opacity: 0.6,
-  }
+  };
 
   return (
     <nav className="p-3 border-gray-200 rounded bg-gray-50 dark:bg-gray-800 border-b-2 border-gray-100 dark:border-gray-700 px-8 mb-8">
@@ -56,10 +56,7 @@ const Navbar = () => {
               width="30px"
             />
             <span>{authedUserInfo.id}</span>
-            <button
-              onClick={handleLogout}
-              className="btn"
-            >
+            <button onClick={handleLogout} className="btn">
               Logout
             </button>
           </div>

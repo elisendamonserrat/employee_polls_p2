@@ -3,7 +3,7 @@ import {
   _getUsers,
   _saveQuestion,
   _saveQuestionAnswer,
-} from "../utils/_DATA";
+} from "../utils/_DATA/_DATA";
 import { receiveQuestions, addQuestion, answerQuestion } from "./questions";
 import { receiveUsers } from "./users";
 import { setAuthedUser } from "./authedUser";

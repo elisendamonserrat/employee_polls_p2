@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Login = ({ state }) => {
+const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedUser, setSelectedUser] = useState("Users");

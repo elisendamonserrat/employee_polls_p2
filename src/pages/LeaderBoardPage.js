@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const LeaderBoardPage = () => {
   const usersObj = useSelector((state) => state.users);
-  
+
   const sortedUsersArr = Object.values(usersObj).sort((a, b) => {
     const aNumQuestions = a.questions.length;
     const bNumQuestions = b.questions.length;

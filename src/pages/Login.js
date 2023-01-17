@@ -14,17 +14,13 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const userID = Object.values(users).filter(
+    const userID = Object.values(users).find(
       (user) => user.name === selectedUser
-    )[0].id;
+    ).id;
 
     dispatch(setAuthedUser(userID));
 
-    if (location.state?.from) {
-      navigate(location.state.from);
-    } else {
-      navigate("/");
-    }
+    navigate(location.state?.from ?? "/");
   };
 
   return (

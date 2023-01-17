@@ -56,7 +56,12 @@ const PollForm = ({ question }) => {
         </div>
       </div>
       <div className="mb-6 w-full md:w-7/12 self-center">
-        <button type="submit" className="btn-accent" onClick={handleSubmit}>
+        <button
+          type="submit"
+          className={`btn-accent ${answer === "" ? "disabled:opacity-60" : ""}`}
+          onClick={handleSubmit}
+          disabled={answer === "" ? true : false}
+        >
           SUBMIT ANSWER
         </button>
       </div>
